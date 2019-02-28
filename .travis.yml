@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- lts/*
+cache: yarn
+script: yarn build
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: zowiegong@gmail.com
+  api_key:
+    secure: qZLwAbFLgwcjmDh8EYE19Q0jISsBIIXIgEWu29pbS1pxKnHZpkTAGbYaQRzZRBYUAXNPKxf316C+eXvSG1E5XcLszzj9A+/xY2kTNaLdlLc3USGa41fCV55PUWWvT94/ACZjjXusHTfq4IydGBF8gvKb0rcg7cSxv7bae1dpxx3bIcKQifPS/OKZwqDR1g1+yygeQ4HDeKiGlDjiOTejAYzzjBQ6zLfZFn/JKk7IAqJX8NGt4ZvIXmcuC+iat/DM3vNtPDAFTcu0C6NtiWqiZSKZOcykICdjS0OjQZWCuxfD8YeMdo9VqX9J8QH4G6RFwivD8YwWzdXGmquOOi9vsNCilMSQJfL6hjvbYkLy06fW5kuZHtuJHzloqPzYCkVhwm/MBrmn3A6A/8d+rpUHC1j3doNedmAzYc4AEqlblASNMJggrE6BfAWqNQVVViL/I/h/d7GuM4QGmI5DymoT9tg1BPoYT3yOWToRjm028kkNiydLq987Uj9L6MhYF2CjudSxoynAXl76DT4oeuMIDq2fd3QthveonOljH3z1fCT4LHTBKh8RJCCOJTNPpGtc9vIi2HKknWdv8XuWRaDbUZmjMFGda8rTrlJk10vFDdHsv22lio2tfD3I0PzCvYlrcevN6TL8H7IU8R75PSJwlDFY0KkH7wQeGjr+refcvbA=
+  on:
+    branch: master

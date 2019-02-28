@@ -1,0 +1,15 @@
+node_modules/
+public/
+src/
+tests/
+.browserslistrc
+.editorconfig
+.eslintrc.js
+.gitignore
+.travis.yml
+yarn.lock
+LICENSE
+package-lock.json
+babel.config.js
+postcss.config.js
+!/dist
