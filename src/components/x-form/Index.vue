@@ -93,7 +93,7 @@ export default {
 
 
   render () {
-    console.time('Render XForm time: ')
+    process.env.NODE_ENV === 'development' && console.time('Render XForm time: ')
     let { form, items } = this.formatterConfig(this.config)
     form = fmtJSXConfig(form)
     items = this.fmtJSXItems(items)
@@ -178,7 +178,7 @@ export default {
 
     // form 元素
     const formEl = <ElForm { ...form }>{ formItemRender(items) }</ElForm>
-    console.timeEnd('Render XForm time: ')
+    process.env.NODE_ENV === 'development' && console.timeEnd('Render XForm time: ')
 
     return <div>{ formEl }</div>
   }

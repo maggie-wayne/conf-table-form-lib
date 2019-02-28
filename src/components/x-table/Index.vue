@@ -9,10 +9,10 @@ export default {
       required: true
     }
   },
-  
+
 
   render () {
-    console.time('Render XTable time: ')
+    process.env.NODE_ENV === 'development' && console.time('Render XTable time: ')
     let { table, colums, pagination } = this.config
     table = fmtJSXConfig(table)
     colums = colums.map(fmtJSXConfig)
@@ -42,7 +42,7 @@ export default {
       </div>
     )
 
-    console.timeEnd('Render XTable time: ')
+    process.env.NODE_ENV === 'development' && console.timeEnd('Render XTable time: ')
     return El
   }
 }
