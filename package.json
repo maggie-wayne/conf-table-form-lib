@@ -1,12 +1,12 @@
 {
   "name": "conf-table-form-lib",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
   "author": {
     "name": "maggieyang1994",
     "email": "maggieyang1994@gmail.com"
   },
-  "main": "./dist/conf-table-form-lib.umd.js",
+  "main": "./dist/conf-table-form-lib.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib ./index.js",
