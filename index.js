@@ -1,5 +1,5 @@
-import XForm from './src/components/x-form/Index.vue'
-import XTable from './src/components/x-table/Index.vue'
+import XForm from './src/components/XForm'
+import XTable from './src/components/XTable'
 import * as helpers from './src/utils/helpers'
 
 const components = [

@@ -1,5 +1,5 @@
 <script>
-import { fmtJSXConfig } from '../../utils/helpers'
+import { fmtJSXConfig } from '../utils/helpers'
 
 export default {
   name: 'XTable',

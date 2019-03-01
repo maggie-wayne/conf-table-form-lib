@@ -1,7 +1,7 @@
-import { vmHelper, jsxLibHelper, btnHelper, groupHelper } from '../utils/helpers'
+import XComponent from '../components/XComponent'
+import { vmHelper } from '../utils/helpers'
 
 export default function (vue) {
-  const lib = jsxLibHelper(vue)
   return {
     table: {
       'data': vue.data,
@@ -86,25 +86,90 @@ export default function (vue) {
       },
       {
         label: 'input',
-        formatter: lib.XInput(row => vmHelper(row, 'name'))
+        formatter: row => XComponent(vue)({
+          type: 'input',
+          component: vmHelper(vue, 'query.input')
+        })
       },
       {
         label: 'btn',
-        formatter: lib.XButton(() => btnHelper('Click me', vue.handlerEvent))
+        formatter: row => XComponent(vue)({
+          type: 'button',
+          component: {
+            $text: 'Click me',
+            on: {
+              click: console.log
+            }
+          }
+        })
       },
       {
         label: 'select',
-        formatter: lib.XGroup(() => groupHelper('select', vue.data.map(x => ({ label: x.name, value: x.id })), vmHelper(vue, 'query.select')))
+        formatter: row => XComponent(vue)({
+          type: 'select',
+          config: {
+            label: 'select'
+          },
+          component: {
+            $parent: vmHelper(vue, 'query.select'),
+            $children: [
+              {
+                label: '选项1',
+                value: 1
+              },
+              {
+                label: '选项2',
+                value: 2
+              }
+            ]
+          }
+        })
       },
       {
         label: 'radio',
-        formatter: lib.XGroup(() => groupHelper('radio', vue.data.map(x => ({ label: x.id, $text: x.name })), vmHelper(vue, 'query.radio')))
+        formatter: row => XComponent(vue)({
+          type: 'radio',
+          config: {
+            label: 'radio'
+          },
+          component: {
+            $parent: vmHelper(vue, 'query.radio'),
+            $children: [
+              {
+                label: 1,
+                $text: '选项1'
+              },
+              {
+                label: 2,
+                $text: '选项2'
+              }
+            ]
+          }
+        })
       },
       {
         label: 'checkbox',
-        formatter: lib.XGroup(() => groupHelper('checkbox', vue.data.map(x => ({ label: x.name, value: x.id })), vmHelper(vue, 'query.checkbox')))
+        formatter: row => XComponent(vue)({
+          type: 'checkbox',
+          config: {
+            label: 'checkboxGroup'
+          },
+          component: {
+            $parent: vmHelper(vue, 'query.checkboxGroup'),
+            $children: [
+              {
+                label: 1,
+                $text: '选项1'
+              },
+              {
+                label: 2,
+                $text: '选项2'
+              }
+            ]
+          }
+        })
       }
-      // {
+      // // {
       //   'type': undefined,
       //   'index': undefined,
       //   'column-key': undefined,

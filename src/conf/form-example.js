@@ -1,4 +1,4 @@
-import { vmHelper, btnHelper } from '../utils/helpers'
+import { vmHelper } from '../utils/helpers'
 
 export default vue => {
   return {
@@ -16,13 +16,7 @@ export default vue => {
       {
         type: 'input',
         config: {
-          label: 'input',
-          style: {
-            'align-items': 'flex-start',
-            width: '50%',
-            display: 'flex',
-            'justify-content': 'center'
-          }
+          label: 'input'
         },
         container: {
           style: {
@@ -34,11 +28,7 @@ export default vue => {
       {
         type: 'datePicker',
         config: {
-          label: 'date',
-          style: {
-            'align-items': 'flex-start',
-            width: '50%'
-          }
+          label: 'date'
         },
         container: {
           style: {
@@ -62,6 +52,14 @@ export default vue => {
         component: vmHelper(vue, 'query.switch')
       },
       {
+        config: {
+          label: 'custome'
+        },
+        component () {
+          return <ElButton>asdfsadfasdf</ElButton>
+        }
+      },
+      {
         type: 'checkbox',
         config: {
           label: 'checkbox'
@@ -69,7 +67,7 @@ export default vue => {
         component: vmHelper(vue, 'query.checkbox')
       },
       {
-        type: 'checkboxGroup',
+        type: 'checkbox',
         config: {
           label: 'checkboxGroup'
         },
@@ -131,7 +129,10 @@ export default vue => {
           label: 'button'
         },
         component: {
-          ...btnHelper('Click me', console.log)
+          $text: 'Clice me',
+          on: {
+            click: console.log
+          }
         }
       }
     ],
