@@ -19,6 +19,8 @@
     "vue": "^2.6.6"
   },
   "devDependencies": {
+    "element-ui": "^2.5.4",
+    "vue": "^2.6.6",
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-plugin-unit-mocha": "^3.4.0",
@@ -30,5 +32,6 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.5.21"
-  }
+  },
+  "license": "MIT"
 }

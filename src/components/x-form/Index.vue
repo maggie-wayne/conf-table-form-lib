@@ -1,4 +1,5 @@
 <script>
+import XGroup from '../jsx-lib/XGroup'
 import { fmtJSXConfig } from '../../utils/helpers'
 
 
@@ -108,15 +109,7 @@ export default {
 
     // 带 group 组件 render
     // TODO: x-table/lib/XGroup
-    const groupRender = ({ parentName, childrenName }, { $parent, $children }) => (
-      <parentName {...$parent}>
-        {
-          $children.map(i => (
-            <childrenName {...i} />
-          ))
-        }
-      </parentName>
-    )
+    const groupRender = config => XGroup(this, () => config)()
 
     // 按钮 render
     const btnRender = (component) => (
@@ -141,20 +134,11 @@ export default {
             return simpleComponentRender({ type, component })
 
           case 'checkboxGroup':
-            return groupRender(
-              { parentName: 'ElCheckboxGroup', childrenName: 'ElCheckbox' },
-              component
-            )
+            return groupRender({ parentName: 'ElCheckboxGroup', childrenName: 'ElCheckbox', ...component })
           case 'select':
-            return groupRender(
-              { parentName: 'ElSelect', childrenName: 'ElOption' },
-              component
-            )
+            return groupRender({ parentName: 'ElSelect', childrenName: 'ElOption', ...component })
           case 'radio':
-            return groupRender(
-              { parentName: 'ElRadioGroup', childrenName: 'ElRadio' },
-              component
-            )
+            return groupRender({ parentName: 'ElRadioGroup', childrenName: 'ElRadio', ...component })
           case 'button':
             return btnRender(component)
 

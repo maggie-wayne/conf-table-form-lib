@@ -48,9 +48,9 @@ export default {
         time: new Date(),
         switch: 'switch',
         checkbox: true,
-        checkboxGroup: ['a'],
+        checkboxGroup: [1],
         select: 1,
-        radio: 0
+        radio: 1
       }
     }
   },

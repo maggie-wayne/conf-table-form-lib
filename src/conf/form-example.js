@@ -1,53 +1,6 @@
-import { vmHelper, formItemHelperGenerator, btnHelper } from '../utils/helpers'
+import { vmHelper, btnHelper } from '../utils/helpers'
 
-const testData = () => ([
-  {
-    label: 'a',
-    value: 0
-  },
-  {
-    label: 'b',
-    value: 1
-  }
-])
-
-const useHelper = vue => {
-  const formItemHelper = formItemHelperGenerator(vue)
-  return {
-    form: {
-      model: vue.query,
-      inline: true
-    },
-
-    items: [
-      formItemHelper('input', 'input', 'query.input'),
-      formItemHelper('datePicker', 'date', 'query.date'),
-      formItemHelper('timePicker', 'time', 'query.time'),
-      formItemHelper('switch', 'switch', 'query.switch'),
-      formItemHelper('checkbox', 'checkbox', 'query.checkbox'),
-      formItemHelper('checkboxGroup', 'checkboxGroup', 'query.checkboxGroup', testData()),
-      formItemHelper('select', 'select', 'query.select', testData()),
-      formItemHelper('radio', 'radio', 'query.radio', testData()),
-      {
-        type: 'button',
-        component: {
-          ...btnHelper('Click me', console.log)
-        }
-      }
-    ],
-
-    style: {
-      itemContainer: {
-        width: '200px'
-      }
-    }
-  }
-}
-
-export default useHelper
-
-// eslint-disable-next-line
-const example = vue => {
+export default vue => {
   return {
     form: {
       model: vue.query,
@@ -122,7 +75,16 @@ const example = vue => {
         },
         component: {
           $parent: vmHelper(vue, 'query.checkboxGroup'),
-          $children: testData()
+          $children: [
+            {
+              label: 1,
+              $text: '选项1'
+            },
+            {
+              label: 2,
+              $text: '选项2'
+            }
+          ]
         }
       },
       {
@@ -132,7 +94,16 @@ const example = vue => {
         },
         component: {
           $parent: vmHelper(vue, 'query.select'),
-          $children: testData()
+          $children: [
+            {
+              label: '选项1',
+              value: 1
+            },
+            {
+              label: '选项2',
+              value: 2
+            }
+          ]
         }
       },
       {
@@ -141,8 +112,17 @@ const example = vue => {
           label: 'radio'
         },
         component: {
-          $parent: vmHelper(vue, 'query.radio', 'change'),
-          $children: testData()
+          $parent: vmHelper(vue, 'query.radio'),
+          $children: [
+            {
+              label: 1,
+              $text: '选项1'
+            },
+            {
+              label: 2,
+              $text: '选项2'
+            }
+          ]
         }
       },
       {
@@ -158,16 +138,16 @@ const example = vue => {
 
     style: {
       form: {
-        background: 'red'
+        // background: 'red'
       },
       formItem: {
-        background: 'blue'
+        // background: 'blue'
       },
       itemContainer: {
-        background: 'yellow'
+        // background: 'yellow'
       },
       component: {
-        background: 'green'
+        // background: 'green'
       }
     }
   }
