@@ -12,38 +12,30 @@ export default {
 
 
   render () {
-    process.env.NODE_ENV === 'development' && console.time('Render XTable time: ')
     let { table, colums, pagination } = this.config
-    table = fmtJSXConfig(table)
-    colums = colums.map(fmtJSXConfig)
-    pagination = fmtJSXConfig(pagination)
 
-    const columsRender = colums => colums.map(i => {
-      return (
-        <ElTableColumn { ...i }>
-          {
-            ('$colums' in i && i.$colums.length) && columsRender(i.$colums)
-          }
-        </ElTableColumn>
-      )
-    })
+    const columsRender = colums => colums.map(i => (
+      <ElTableColumn { ...fmtJSXConfig(i) }>
+        {
+          ('$colums' in i && i.$colums.length) && columsRender(i.$colums)
+        }
+      </ElTableColumn>
+    ))
 
-    const tableEl = (
-      <ElTable { ...table }>
+    const tableEl = (table, colums) => table && colums && (
+      <ElTable { ...fmtJSXConfig(table) }>
         { columsRender(colums) }
       </ElTable>
     )
 
-    const paginationRender = pagination => <ElPagination { ...pagination } />
-    const El = this.config && (
-      <div>
-        { tableEl }
+    const paginationRender = pagination => pagination && <ElPagination { ...fmtJSXConfig(pagination) } />
+
+    return (
+      <div class="x-table">
+        { tableEl(table, colums) }
         { paginationRender(pagination) }
       </div>
     )
-
-    process.env.NODE_ENV === 'development' && console.timeEnd('Render XTable time: ')
-    return El
   }
 }
 </script>

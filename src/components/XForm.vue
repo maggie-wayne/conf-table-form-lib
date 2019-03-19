@@ -1,6 +1,6 @@
 <script>
 import XComponent from './XComponent'
-import { fmtJSXConfig, fmtJSXItems } from '../utils/helpers'
+import { fmtJSXConfig } from '../utils/helpers'
 
 
 export default {
@@ -28,8 +28,8 @@ export default {
 
       function mergeStyle (target, style) {
         return {
-          ...target && target,
-          ...style
+          ...style,
+          ...target && target
         }
       }
 
@@ -63,28 +63,18 @@ export default {
         return temp
       })
 
-      // console.log('formatted config object: ', result)
       return result
     }
   },
 
 
   render () {
-    process.env.NODE_ENV === 'development' && console.time('Render XForm time: ')
     let { form, items } = this.formatterConfig(this.config)
-    form = fmtJSXConfig(form)
-    items = fmtJSXItems(items)
-    // console.log('Formatted JSX config form: ', form)
-    // console.log('Formatted JSX config items: ', items)
 
-    // 外层容器
-    const containerRender = config => <ElCol { ...config.container }>{ XComponent(this)(config) }</ElCol>
+    const containerRender = config => <ElCol { ...fmtJSXConfig(config.container) }>{ XComponent(this)(config) }</ElCol>
+    const formItemRender = items => items.map(i => <ElFormItem { ...fmtJSXConfig(i.config) }>{ containerRender(i) }</ElFormItem>)
 
-    // formItem
-    const formItemRender = items => items.map(i => <ElFormItem { ...i.config }>{ containerRender(i) }</ElFormItem>)
-
-    process.env.NODE_ENV === 'development' && console.timeEnd('Render XForm time: ')
-    return <ElForm { ...form }>{ formItemRender(items) }</ElForm>
+    return <ElForm { ...fmtJSXConfig(form) }>{ formItemRender(items) }</ElForm>
   }
 }
 </script>
