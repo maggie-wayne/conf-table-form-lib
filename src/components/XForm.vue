@@ -28,8 +28,8 @@ export default {
 
       function mergeStyle (target, style) {
         return {
-          ...target && target,
-          ...style
+          ...style,
+          ...target && target
         }
       }
 
