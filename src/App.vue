@@ -6,11 +6,14 @@
 </template>
 
 <script>
+import helperMixin from './utils/helperMixin'
 import formConfigGenerator from './conf/form-example'
 import tableConfigGenerator from './conf/table-example'
 
 export default {
   name: 'app',
+
+  mixins: [helperMixin],
 
   data () {
     return {
@@ -55,14 +58,17 @@ export default {
     }
   },
 
+
   computed: {
     tableConfig () {
-      return tableConfigGenerator(this)
+      return tableConfigGenerator.call(this)
     },
+
     formConfig () {
-      return formConfigGenerator(this)
+      return formConfigGenerator.call(this)
     }
   },
+
 
   methods: {
     handlerEvent (e) {

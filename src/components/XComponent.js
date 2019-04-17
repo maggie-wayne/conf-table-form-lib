@@ -1,4 +1,4 @@
-import { fmtJSXConfig } from '../utils/helpers'
+import { fmtJSXConfig } from '../utils'
 
 const groupMap = {
   checkbox: ['ElCheckboxGroup', 'ElCheckbox'],

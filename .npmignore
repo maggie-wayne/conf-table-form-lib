@@ -1,5 +1,4 @@
 node_modules/
-public/
 src/
 tests/
 .browserslistrc
@@ -7,9 +6,6 @@ tests/
 .eslintrc.js
 .gitignore
 .travis.yml
-yarn.lock
-LICENSE
-package-lock.json
 babel.config.js
 postcss.config.js
 !/dist

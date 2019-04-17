@@ -1,15 +1,8 @@
-import { vmHelper } from '../utils/helpers'
-
-export default vue => {
+export default function () {
   return {
     form: {
-      model: vue.query,
-      style: {
-        display: 'flex',
-        'flex-direction': 'row',
-        'flex-wrap': 'wrap',
-        'justify-content': 'space-between'
-      }
+      model: this.query,
+      inline: true
     },
 
     items: [
@@ -23,7 +16,7 @@ export default vue => {
             width: '200px'
           }
         },
-        component: vmHelper(vue, 'query.input')
+        component: this.vmHelper('query.input')
       },
       {
         type: 'datePicker',
@@ -35,21 +28,21 @@ export default vue => {
             width: '200px'
           }
         },
-        component: vmHelper(vue, 'query.date')
+        component: this.vmHelper('query.date')
       },
       {
         type: 'timePicker',
         config: {
           label: 'time'
         },
-        component: vmHelper(vue, 'query.time')
+        component: this.vmHelper('query.time')
       },
       {
         type: 'switch',
         config: {
           label: 'switch'
         },
-        component: vmHelper(vue, 'query.switch')
+        component: this.vmHelper('query.switch')
       },
       {
         config: {
@@ -64,7 +57,7 @@ export default vue => {
         config: {
           label: 'checkbox'
         },
-        component: vmHelper(vue, 'query.checkbox')
+        component: this.vmHelper('query.checkbox')
       },
       {
         type: 'checkbox',
@@ -72,7 +65,7 @@ export default vue => {
           label: 'checkboxGroup'
         },
         component: {
-          $parent: vmHelper(vue, 'query.checkboxGroup'),
+          $parent: this.vmHelper('query.checkboxGroup'),
           $children: [
             {
               label: 1,
@@ -91,7 +84,7 @@ export default vue => {
           label: 'select'
         },
         component: {
-          $parent: vmHelper(vue, 'query.select'),
+          $parent: this.vmHelper('query.select'),
           $children: [
             {
               label: '选项1',
@@ -110,7 +103,7 @@ export default vue => {
           label: 'radio'
         },
         component: {
-          $parent: vmHelper(vue, 'query.radio'),
+          $parent: this.vmHelper('query.radio'),
           $children: [
             {
               label: 1,
