@@ -6,10 +6,11 @@
     "name": "maggieyang1994",
     "email": "maggieyang1994@gmail.com"
   },
-  "main": "./dist/conf-table-form-lib.umd.js",
+  "main": "./lib/conf-table-form-lib.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib ./index.js",
+    "build:page": "vue-cli-service build --dest page",
+    "build:lib": "vue-cli-service build --target lib ./index.js --dest lib",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },

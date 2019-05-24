@@ -1,7 +1,9 @@
+.DS_Store
 node_modules/
 public/
 src/
 tests/
+page/
 .browserslistrc
 .editorconfig
 .eslintrc.js
@@ -12,4 +14,4 @@ LICENSE
 package-lock.json
 babel.config.js
 postcss.config.js
-!/dist
+!/lib
