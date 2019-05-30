@@ -10,4 +10,6 @@ page/
 .travis.yml
 babel.config.js
 postcss.config.js
-!/lib
+/lib
+!/lib/conf-table-form-lib.umd.min.js
+!/lib/conf-table-form-lib.umd.min.js.map

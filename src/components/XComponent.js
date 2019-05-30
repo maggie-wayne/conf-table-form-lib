@@ -37,6 +37,8 @@ export default function XComponent (v) {
     if (Object.prototype.toString.call(component) === '[object Function]') return component.call(v)
     if ('$parent' in component && '$children' in component) return groupRender(v)(config)
 
+    // TODO: El 去掉，可以兼容其它组件库
+    // TODO: $text 或许可以改为 $innterText
     const tagName = 'El' + type.charAt(0).toUpperCase() + type.slice(1)
     return <tagName {...fmtJSXConfig(component)}>{ component.$text }</tagName>
   }
