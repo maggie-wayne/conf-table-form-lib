@@ -1,20 +1,18 @@
 export default {
   methods: {
-    vmHelper (path, e = 'input', cb) {
+    vm (path, e = 'input', cb) {
       // eslint-disable-next-line
       const self = this
 
-      if (!cb) {
-        cb = function (v) {
-          eval(`self.${path} = v`)
-        }
+      const defaultCb = function (event) {
+        eval(`self.${path} = event`)
       }
 
       return {
         props: {
           value: eval(`this.${path}`)
         },
-        ...this.eventHelper(e, cb)
+        ...this.eventHelper(e, cb || defaultCb)
       }
     },
 

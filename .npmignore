@@ -1,6 +1,8 @@
+.DS_Store
 node_modules/
 src/
 tests/
+page/
 .browserslistrc
 .editorconfig
 .eslintrc.js
@@ -8,4 +10,4 @@ tests/
 .travis.yml
 babel.config.js
 postcss.config.js
-!/dist
+!/lib
