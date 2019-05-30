@@ -74,8 +74,6 @@ export default {
 
 
   methods: {
-    vm: vmHelper,
-
     handlerEvent (e) {
       console.log('Event', e)
     }
