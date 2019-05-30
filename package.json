@@ -6,7 +6,7 @@
     "name": "maggieyang1994",
     "email": "maggieyang1994@gmail.com"
   },
-  "main": "./lib/conf-table-form-lib.umd.js",
+  "main": "./lib/conf-table-form-lib.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:page": "vue-cli-service build --dest page",

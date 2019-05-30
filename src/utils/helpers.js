@@ -27,19 +27,17 @@ export const fmtJSXConfig = (config) => {
 }
 
 
-export const eventHelper = (e, cb) => {
-  return {
-    on: {
-      [e]: cb
-    }
+export const vmHelper = function (path, eventName = 'input', cb) {
+  // eslint-disable-next-line
+  const self = this
+  const defaultCb = function (event) {
+    eval(`self.${path} = event`)
   }
-}
 
-
-// eslint-disable-next-line
-export const vmHelper = (vue, path, eventName = 'input', cb = event => eval(`vue.${path} = event`)) => {
   return fmtJSXConfig({
-    value: eval(`vue.${path}`),
-    ...eventHelper(eventName, cb)
+    value: eval(`self.${path}`),
+    on: {
+      [eventName]: cb || defaultCb
+    }
   })
 }

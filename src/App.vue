@@ -5,9 +5,12 @@
   </div>
 </template>
 
+
 <script>
+import { vmHelper } from './utils/helpers'
 import formConfigGenerator from './conf/form-example'
 import tableConfigGenerator from './conf/table-example'
+
 
 export default {
   name: 'app',
@@ -20,17 +23,20 @@ export default {
           name: '王1虎',
           address: '上海市普陀区金沙江路 1518 弄',
           id: 1
-        }, {
+        },
+        {
           date: '2016-05-04',
           name: '王2虎',
           address: '上海市普陀区金沙江路 1517 弄',
           id: 2
-        }, {
+        },
+        {
           date: '2016-05-01',
           name: '王3虎',
           address: '上海市普陀区金沙江路 1519 弄',
           id: 3
-        }, {
+        },
+        {
           date: '2016-05-03',
           name: '王4虎',
           address: '上海市普陀区金沙江路 1516 弄',
@@ -44,27 +50,27 @@ export default {
       },
       query: {
         input: 'input',
+        select: 1,
+        checkbox: [1],
         date: new Date(),
         time: new Date(),
-        switch: 'switch',
-        checkbox: true,
-        checkboxGroup: [1],
-        select: 1,
-        radio: 1
+        switch: 'switch'
       }
     }
   },
 
   computed: {
     tableConfig () {
-      return tableConfigGenerator(this)
+      return tableConfigGenerator.call(this)
     },
     formConfig () {
-      return formConfigGenerator(this)
+      return formConfigGenerator.call(this)
     }
   },
 
   methods: {
+    vm: vmHelper,
+
     handlerEvent (e) {
       console.log('Event', e)
     }
