@@ -11,7 +11,6 @@ page/
 index.js
 babel.config.js
 postcss.config.js
-example.PNG
 vue.config.js
 
 conf-table-form-lib.common.js
