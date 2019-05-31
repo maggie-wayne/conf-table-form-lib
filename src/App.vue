@@ -7,13 +7,15 @@
 
 
 <script>
-import { vmHelper } from './utils/helpers'
+import helperMixin from './utils/helperMixin'
 import formConfigGenerator from './conf/form-example'
 import tableConfigGenerator from './conf/table-example'
 
 
 export default {
   name: 'app',
+
+  mixins: [helperMixin],
 
   data () {
     return {
@@ -59,18 +61,19 @@ export default {
     }
   },
 
+
   computed: {
     tableConfig () {
       return tableConfigGenerator.call(this)
     },
+
     formConfig () {
       return formConfigGenerator.call(this)
     }
   },
 
-  methods: {
-    vm: vmHelper,
 
+  methods: {
     handlerEvent (e) {
       console.log('Event', e)
     }

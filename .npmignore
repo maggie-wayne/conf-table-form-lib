@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-public/
 src/
 tests/
 page/
@@ -9,9 +8,13 @@ page/
 .eslintrc.js
 .gitignore
 .travis.yml
-yarn.lock
-LICENSE
-package-lock.json
+index.js
 babel.config.js
 postcss.config.js
-!/lib
+vue.config.js
+
+conf-table-form-lib.common.js
+conf-table-form-lib.common.js.map
+conf-table-form-lib.umd.js
+conf-table-form-lib.umd.js.map
+demo.html

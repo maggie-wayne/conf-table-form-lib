@@ -1,6 +1,5 @@
 import XForm from './src/components/XForm'
 import XTable from './src/components/XTable'
-import * as helpers from './src/utils/helpers'
 
 const components = [
   XForm,
@@ -16,6 +15,5 @@ const install = Vue => {
 export default {
   install,
   XForm,
-  XTable,
-  helpers
+  XTable
 }

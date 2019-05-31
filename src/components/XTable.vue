@@ -1,8 +1,9 @@
 <script>
-import { fmtJSXConfig } from '../utils/helpers'
+import { fmtJSXConfig } from '../utils'
 
 export default {
   name: 'XTable',
+
   props: {
     config: {
       type: Object,
@@ -11,14 +12,12 @@ export default {
   },
 
 
-  render () {
+  render (h) {
     let { table, colums, pagination } = this.config
 
     const columsRender = colums => colums.map(i => (
       <ElTableColumn { ...fmtJSXConfig(i) }>
-        {
-          ('$colums' in i && i.$colums.length) && columsRender(i.$colums)
-        }
+        { ('$colums' in i && i.$colums.length) && columsRender(i.$colums) }
       </ElTableColumn>
     ))
 

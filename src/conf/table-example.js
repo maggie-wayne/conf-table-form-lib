@@ -54,11 +54,11 @@ export default function () {
         $colums: [
           {
             label: 'suba',
-            prop: 'suba'
+            prop: 'name'
           },
           {
             label: 'subb',
-            prop: 'subb'
+            prop: 'address'
           }
         ]
       },
