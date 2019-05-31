@@ -1,38 +1,28 @@
 {
-  "name": "conf-table-form-lib",
-  "version": "1.0.7",
-  "private": false,
-  "author": {
-    "name": "maggieyang1994",
-    "email": "maggieyang1994@gmail.com"
-  },
-  "main": "./lib/conf-table-form-lib.umd.min.js",
+  "name": "test",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:page": "vue-cli-service build --dest page",
-    "build:lib": "vue-cli-service build --target lib ./index.js --dest lib",
-    "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "element-ui": "^2.5.4",
-    "vue": "^2.6.6"
+  "dependencies": {
+    "conf-table-form-lib": "^1.0.7",
+    "core-js": "^2.6.5",
+    "element-ui": "^2.9.1",
+    "faker": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rc16",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3"
   },
   "devDependencies": {
-    "element-ui": "^2.5.4",
-    "vue": "^2.6.6",
-    "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-plugin-unit-mocha": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
-    "@vue/eslint-config-standard": "^4.0.0",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
-    "chai": "^4.1.2",
-    "eslint": "^5.8.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.5.21"
-  },
-  "license": "MIT"
+    "vue-template-compiler": "^2.6.10"
+  }
 }
