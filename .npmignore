@@ -8,8 +8,14 @@ page/
 .eslintrc.js
 .gitignore
 .travis.yml
+index.js
 babel.config.js
 postcss.config.js
-/lib
-!/lib/conf-table-form-lib.umd.min.js
-!/lib/conf-table-form-lib.umd.min.js.map
+example.PNG
+vue.config.js
+
+conf-table-form-lib.common.js
+conf-table-form-lib.common.js.map
+conf-table-form-lib.umd.js
+conf-table-form-lib.umd.js.map
+demo.html
