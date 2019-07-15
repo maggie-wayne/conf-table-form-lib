@@ -15,7 +15,12 @@
 ## Use
 
 ### install
-`yarn add conf-table-form-lib` or `npm install conf-table-form-lib`
+
+`yarn add conf-table-form-lib`
+
+or 
+
+`npm install conf-table-form-lib`
 
 
 ### main.js
@@ -40,10 +45,10 @@ Vue.use(ConfTableForm)
 export default {
   computed: {
     formConfig () {
-      return option
+      return { // .... }
     },
     tableConfig () {
-      return option
+      return { // .... }
     }
   }
 }
