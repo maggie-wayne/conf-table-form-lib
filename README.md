@@ -1,17 +1,5 @@
 # conf-table-form-lib
 
-为什么会有这个项目：[表单配置化思考](https://zowiegong.com/posts/Thinking%20about%20configurable%20from.html)
-
-
-## 
-
-真的需要配置化吗？
-
-这是不是为了配置化而配置化？
-
-这仅是一次对配置化的探索，已在实际项目中得到实践。
-
-
 ## Use
 
 ### install
